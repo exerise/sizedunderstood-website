@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="550 550 500 500" role="img" aria-label="SizedUnderstood logo">
+  <defs>
+    <mask id="bite" maskUnits="userSpaceOnUse" x="550" y="550" width="500" height="500">
+      <rect x="550" y="550" width="500" height="500" fill="#fff"/>
+      <circle cx="900" cy="539" r="55" fill="#000"/>
+      <circle cx="995" cy="604" r="76" fill="#000"/>
+      <circle cx="1069.5" cy="705" r="59" fill="#000"/>
+    </mask>
+  </defs>
+  <rect x="550" y="550" width="500" height="500" rx="110" fill="#E3FF1C" mask="url(#bite)"/>
+  <polyline points="695.5,720 819.5,810 695.5,900" fill="none" stroke="#0A0A0A" stroke-width="59" stroke-linejoin="miter" stroke-miterlimit="10"/>
+  <rect x="840" y="875" width="115" height="50" fill="#0A0A0A"/>
+</svg>
