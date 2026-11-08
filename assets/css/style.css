@@ -858,6 +858,8 @@ h3 { font-size: 20px; letter-spacing: -0.01em; line-height: 1.25; margin: 0 0 8p
   white-space: nowrap;
   scrollbar-width: thin;
 }
+.code.wrap { align-items: flex-start; }
+.code.wrap code { white-space: normal; overflow-wrap: anywhere; line-height: 1.55; }
 .code code::before { content: "$ "; color: var(--accent); }
 .code.chat code::before { content: "> "; }
 .copy {

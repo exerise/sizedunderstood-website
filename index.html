@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem("su-theme")==="light"){document.documentElement.setAttribute("data-theme","light");}}catch(e){}</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
 
   <script type="application/ld+json">
   {
@@ -353,24 +353,24 @@
             <div class="spec-title">&gt; what_it_needs</div>
             <dl>
               <div class="spec-row">
-                <dt>claude_code</dt>
-                <dd>Claude Code 2.0 or later<small>With a Claude Pro or Max plan, or an Anthropic API key</small></dd>
+                <dt>ai_agent</dt>
+                <dd>Claude Code 2.0 or later<small>With a Claude Pro or Max plan, or an Anthropic API key. Codex, Cursor, Gemini and Grok can run it too, with your own account</small></dd>
               </div>
               <div class="spec-row">
                 <dt>os</dt>
                 <dd>Windows 10/11 or macOS 13+</dd>
               </div>
               <div class="spec-row">
-                <dt>node</dt>
-                <dd>Node.js 22.12 or later<small>Setup checks this and tells you if it's missing</small></dd>
+                <dt>other_tools</dt>
+                <dd>Nothing to install first<small>Setup puts Node, ffmpeg and everything else inside the pack's folder, with no password or admin rights</small></dd>
               </div>
               <div class="spec-row">
                 <dt>hardware</dt>
-                <dd>16 GB RAM recommended, 10 GB free disk space</dd>
+                <dd>16 GB RAM recommended, 10 GB free disk space<small>Your first video may download a one-time speech tool, about 500 MB</small></dd>
               </div>
               <div class="spec-row">
                 <dt>voice_sound</dt>
-                <dd>ElevenLabs API key for the voice, music bed and sound effects<small>Or record your own voice and use your own music. Third-party services are billed by them, not us</small></dd>
+                <dd>A voice key from ElevenLabs, OpenAI or Fish Audio<small>Setup gets an ElevenLabs key with a one-time browser sign-in, and a free account works for the voice. The same key makes music and sound effects on plans that include them, or use your own royalty-free files. You can also use your own voice. Third-party services are billed by them, not us</small></dd>
               </div>
               <div class="spec-row">
                 <dt>skill_level</dt>
@@ -387,19 +387,17 @@
                 <p>Right after checkout, Lemon Squeezy shows your download button and emails you the link and receipt.</p>
               </li>
               <li>
-                <h3>Unzip and open it in Claude Code</h3>
-                <p>Unzip anywhere you like, then start Claude Code inside the folder.</p>
-                <div class="code"><code>cd sizedunderstood-pack</code><button class="copy" type="button">Copy</button></div>
-                <div class="code"><code>claude</code><button class="copy" type="button">Copy</button></div>
+                <h3>Paste one message into Claude Code</h3>
+                <p>It finds the zip, unzips it and does the whole setup for you. Your browser may open once for a sign-in.</p>
+                <div class="code chat wrap"><code>I just downloaded a SizedUnderstood pack to this computer. Find the zip in my Downloads folder, unzip it into my Documents folder, then open that folder, read its SETUP.md and do the whole setup for me. Do every step yourself and only ask me for what you can't do.</code><button class="copy" type="button">Copy</button></div>
               </li>
               <li>
-                <h3>Run setup</h3>
-                <p>Just say it. Claude Code installs what the pack needs and checks your machine. If anything breaks later, say <code class="mono lime">help</code>.</p>
-                <div class="code chat"><code>set me up</code><button class="copy" type="button">Copy</button></div>
+                <h3>Make it yours</h3>
+                <p>Setup asks for your name and logo, who you make videos for, your look and voice, and your video quality: 1080p by default, 2K or 4K, all at 60 fps. If anything breaks later, say <code class="mono lime">help</code>.</p>
               </li>
               <li>
                 <h3>Make your first reel</h3>
-                <p>Ask anything. Finished videos land in <code class="mono">output/</code> with the caption and cover.</p>
+                <p>Open your workspace and choose a new video, or just ask. Finished videos land in <code class="mono">workspace/videos/</code> with the caption and cover.</p>
                 <div class="code chat"><code>/explainer how do noise-cancelling earbuds work?</code><button class="copy" type="button">Copy</button></div>
               </li>
             </ol>
@@ -507,13 +505,13 @@
           <details>
             <summary>Are there other costs?</summary>
             <div class="answer">
-              <p>You need your own Claude Code access (a Claude Pro or Max plan, or an Anthropic API key). ElevenLabs, for the AI voice, music and sound effects, is billed by them; you can record your own voice instead. Remotion, which renders the videos, is free for individuals and small companies; larger companies need a Remotion company licence.</p>
+              <p>You need your own Claude Code access (a Claude Pro or Max plan, or an Anthropic API key) or an account with another supported agent. The AI voice needs a key from ElevenLabs, OpenAI or Fish Audio, billed by them; ElevenLabs has a free account, and you can use your own voice instead. Generated music and sound effects need an ElevenLabs plan that includes them, or you can use your own royalty-free files. Remotion, which renders the videos, is free for individuals and small companies; larger companies need a Remotion company licence.</p>
             </div>
           </details>
           <details>
             <summary>Does it work with Codex, Cursor or other agents?</summary>
             <div class="answer">
-              <p>The pack is built and tested for Claude Code. Other agents may run parts of it, but we only support Claude Code.</p>
+              <p>Yes. Setup also works with Codex, Cursor, Gemini and Grok, using your own account with them. The pack was built in Claude Code, so that's the agent shown on this page.</p>
             </div>
           </details>
           <details>
