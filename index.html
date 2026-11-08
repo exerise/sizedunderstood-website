@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SizedUnderstood Explainer Pack for Claude Code</title>
-  <meta name="description" content="Turn any topic into a 90-second animated explainer reel from inside Claude Code. The pack behind SizedUnderstood's 2M+ reel views. Renders in 4K at 60 fps. One-time $99, instant download.">
+  <meta name="description" content="Turn any topic into a 90-second animated explainer reel from inside Claude Code. The pack behind SizedUnderstood's 2M+ reel views. Renders in up to 4K at 60 fps. One-time $99, instant download.">
   <meta name="theme-color" content="#0A0A0A">
   <link rel="canonical" href="https://www.sizedunderstood.com/">
 
@@ -23,14 +23,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=4">
+  <script>try{if(localStorage.getItem("su-theme")==="light"){document.documentElement.setAttribute("data-theme","light");}}catch(e){}</script>
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "SizedUnderstood Explainer Pack for Claude Code",
-    "description": "A Claude Code pack that turns any topic into a 60–90 second animated explainer reel, rendered in 4K at 60 fps.",
+    "description": "A Claude Code pack that turns any topic into a 60–90 second animated explainer reel, rendered in up to 4K at 60 fps.",
     "brand": { "@type": "Brand", "name": "SizedUnderstood" },
     "image": "https://www.sizedunderstood.com/assets/img/og-image.png",
     "offers": {
@@ -43,7 +44,7 @@
   }
   </script>
 </head>
-<body>
+<body class="has-buy-bar">
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -61,7 +62,8 @@
         <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
-        <a class="btn btn-primary btn-sm" href="#pricing">Buy · $99</a>
+        <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch to light mode" title="Switch to light mode"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+        <a class="btn btn-primary btn-sm" href="#pricing" data-goto-buy><span>Buy<span class="hide-xs"> · $99</span></span></a>
         <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -130,8 +132,8 @@
           <div class="stat-value">2M+</div>
         </div>
         <div class="stat reveal">
-          <div class="stat-label">4K vertical output</div>
-          <div class="stat-value">60 fps</div>
+          <div class="stat-label">Vertical output, up to</div>
+          <div class="stat-value">4K 60fps</div>
         </div>
         <div class="stat reveal">
           <div class="stat-label">Voice, music, sound</div>
@@ -236,7 +238,7 @@
             </li>
             <li class="step reveal">
               <h3>Approve the script</h3>
-              <p>A tight 60–90 second script with five hook options. Pick one, change any words. That's your only sign-off.</p>
+              <p>A tight 60–90 second script with 3 hooks to pick from, both spoken and visual, before anything is built. Choose yours and change any words. That's your only sign-off.</p>
             </li>
             <li class="step reveal">
               <h3>Voice, one take</h3>
@@ -244,11 +246,11 @@
             </li>
             <li class="step reveal">
               <h3>Every scene built in 3D</h3>
-              <p>Each sentence gets its own lit 3D scene, drawn from real references and checked frame by frame.</p>
+              <p>Each sentence gets its own lit 3D scene, drawn from real references and checked frame by frame. Everyday objects start from the 10+ 3D models already in the folder, so builds go faster.</p>
             </li>
             <li class="step reveal">
               <h3>Render with music and sound</h3>
-              <p>A music bed and sound effects are mixed under the voice. You get a 4K, 60 fps MP4 (or 1080p for faster renders), the post caption and the cover.</p>
+              <p>A music bed and sound effects are mixed under the voice. You get an MP4 in up to 4K at 60 fps, plus the post caption and the cover.</p>
             </li>
           </ol>
         </div>
@@ -272,8 +274,8 @@
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 12l9-5M12 12v10M12 12L3 7"/></svg></div>
             <span class="mono-tag">remotion + three.js</span>
-            <h3>3D scene module library</h3>
-            <p>Reusable animated building blocks: chips, phones, signals, networks, labels, counters, camera moves and lighting rigs, tuned for vertical video.</p>
+            <h3>10+ ready-made 3D models and scene modules</h3>
+            <p>10+ regularly used 3D models are already in the folder, including phones, laptops, headphones, earbuds, chargers, cables, cars and ships, so your builds start faster. Plus reusable blocks for signals, networks, labels, counters, camera moves and lighting, tuned for vertical video.</p>
           </article>
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7"/><rect x="16" y="14" width="5" height="6" rx="1"/></svg></div>
@@ -296,9 +298,45 @@
           <article class="card reveal">
             <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></div>
             <span class="mono-tag">examples/</span>
-            <h3>Worked example reels</h3>
-            <p>Complete source projects of real SizedUnderstood explainers to study, remix and learn from, plus all future updates to the pack.</p>
+            <h3>A full example reel, every file</h3>
+            <p>The finished <a href="#example">AirPods reel</a> with everything that made it, to study and learn from, plus all future updates to the pack.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXAMPLE ================= -->
+    <section id="example" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Open up a finished reel,<br>file by file.</h2>
+          <span class="section-tag">&gt; open ./examples_</span>
+        </div>
+        <p class="proof-lead">The pack generated this 31-second reel. All of its files are included in your download, so you can see exactly how a finished reel is put together.</p>
+        <div class="demo-grid">
+          <figure class="player reveal">
+            <div class="player-frame">
+              <video id="example-video" src="assets/video/example-airpods.mp4" poster="assets/video/example-airpods-poster.jpg" controls playsinline preload="none" aria-label="Example reel made with the pack: how noise-cancelling AirPods work on a plane's rumble"></video>
+              <button class="player-play" type="button" data-play="example-video">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+                Watch with sound
+              </button>
+            </div>
+            <figcaption class="player-cap">Compressed for the web. Your download has the original at 1440×2560, 60 fps.<small>AirPods and Apple are trademarks of Apple Inc. This example has no connection with or endorsement from Apple.</small></figcaption>
+          </figure>
+          <div class="spec reveal">
+            <div class="spec-title">&gt; included_in_your_download</div>
+            <ul class="file-list">
+              <li><code>airpods-plane-noise.mp4</code><span>The finished video</span></li>
+              <li><code>caption.txt · cover.jpg</code><span>The post caption and cover</span></li>
+              <li><code>project/</code><span>The transcript, hook options, research and every fact with its source</span></li>
+              <li><code>reel/plan.md</code><span>The visual plan</span></li>
+              <li><code>reel/scenes/</code><span>The code of every scene: the AirPod, the cabin, the ear and the moving air</span></li>
+              <li><code>reel/notes/</code><span>What each builder looked at and built</span></li>
+              <li><code>reel/voice.mp3 · reel/music/</code><span>The narration, the music bed, the cabin rumble and the mix</span></li>
+            </ul>
+            <p class="file-note">The reference photos the builders looked at aren't included, because they belong to their owners.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -396,7 +434,8 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>All skills, commands and scene modules</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Caption system, look guide and palettes</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Retention script framework</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Worked example reel projects</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>10+ ready-made 3D models</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Full example reel with every file</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free updates and email support</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Personal and commercial use</li>
           </ul>
@@ -554,14 +593,22 @@
       </div>
       <div class="disclaimer">
         <p>SizedUnderstood is an independent product and is not affiliated with, endorsed by or sponsored by Anthropic. Claude and Claude Code are trademarks of Anthropic, PBC.</p>
-        <p>SizedUnderstood, Apollo Road, Birmingham, B68 9RT, United Kingdom. Email <a href="mailto:support@sizedunderstood.com">support@sizedunderstood.com</a>.</p>
+        <p>SizedUnderstood, Birmingham, United Kingdom. Email <a href="mailto:support@sizedunderstood.com">support@sizedunderstood.com</a>.</p>
         <p>© <span data-year>2026</span> SizedUnderstood</p>
       </div>
     </div>
   </footer>
 
+  <div class="buy-bar" role="region" aria-label="Buy the Explainer Pack">
+    <div class="buy-bar-info">
+      <strong>Explainer Pack</strong>
+      <span>$99 + tax · one-time</span>
+    </div>
+    <a class="btn btn-primary" href="#pricing" data-goto-buy>BUY NOW</a>
+  </div>
+
   <script src="assets/js/config.js?v=2"></script>
-  <script src="assets/js/main.js?v=3" defer></script>
+  <script src="assets/js/main.js?v=4" defer></script>
   <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
 </body>
 </html>

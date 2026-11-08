@@ -4,6 +4,30 @@
   var config = window.SU_CONFIG || {};
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // ---- Light / dark theme (the saved choice is applied in each page's <head>) ----
+  var themeRoot = document.documentElement;
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  var themeButtons = document.querySelectorAll("[data-theme-toggle]");
+  function syncTheme() {
+    var light = themeRoot.getAttribute("data-theme") === "light";
+    var label = light ? "Switch to dark mode" : "Switch to light mode";
+    if (themeMeta) themeMeta.setAttribute("content", light ? "#F7F7F2" : "#0A0A0A");
+    themeButtons.forEach(function (b) {
+      b.setAttribute("aria-label", label);
+      b.setAttribute("title", label);
+    });
+  }
+  themeButtons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var toLight = themeRoot.getAttribute("data-theme") !== "light";
+      if (toLight) themeRoot.setAttribute("data-theme", "light");
+      else themeRoot.removeAttribute("data-theme");
+      try { localStorage.setItem("su-theme", toLight ? "light" : "dark"); } catch (e) {}
+      syncTheme();
+    });
+  });
+  syncTheme();
+
   // ---- Toast ----
   var toastEl;
   function toast(message) {
@@ -67,6 +91,26 @@
       toast("Please tick the box above the button to continue.");
     }, true);
   }
+
+  // Top-panel and sticky Buy buttons: open checkout if the box is ticked,
+  // otherwise bring the required tick box and the real Buy button into view.
+  document.querySelectorAll("[data-goto-buy]").forEach(function (btn) {
+    btn.addEventListener("click", function (e) {
+      if (!consent) return;
+      e.preventDefault();
+      if (consent.checked) {
+        var realBuy = document.querySelector(".price-card [data-buy]");
+        if (realBuy) realBuy.click();
+        return;
+      }
+      var box = consent.closest(".consent");
+      box.scrollIntoView({ block: "center", behavior: reduceMotion ? "auto" : "smooth" });
+      consent.focus({ preventScroll: true });
+      box.classList.add("nudge");
+      setTimeout(function () { box.classList.remove("nudge"); }, 600);
+      toast("Tick the box, then press Buy now.");
+    });
+  });
 
   window.addEventListener("load", function () {
     if (checkoutReady && config.overlay && typeof window.createLemonSqueezy === "function") {
@@ -179,7 +223,7 @@
     document.querySelectorAll("video").forEach(function (v) {
       if (v !== keep && !v.muted) {
         v.muted = true;
-        if (v.id === "demo-video") v.pause();
+        if (v.hasAttribute("controls")) v.pause();
       }
     });
     document.querySelectorAll("[data-sound], [data-proof-sound]").forEach(function (b) {
