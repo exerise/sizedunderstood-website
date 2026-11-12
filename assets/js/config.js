@@ -1,10 +1,9 @@
 // Site settings: edit these, nothing else needs to change.
 window.SU_CONFIG = {
-  // Step 5: paste your Lemon Squeezy checkout link here
-  // (Lemon Squeezy > Products > your product > Share > Checkout URL).
-  checkoutUrl: "https://YOUR-STORE.lemonsqueezy.com/buy/REPLACE-ME",
+  // The Polar checkout link (Polar > Products > Checkout Links > copy the link).
+  checkoutUrl: "https://buy.polar.sh/polar_cl_O0fF6ogE9BDOkicjVDBuZcWJDEEQlGPDHwh6P3ey3wX",
 
-  // true = checkout opens as an overlay on this page (Lemon.js);
-  // false = buyers go to the Lemon Squeezy checkout page.
+  // true = checkout opens as a pop-up on this page (Polar's embed script);
+  // false = buyers go to Polar's checkout page.
   overlay: true
 };

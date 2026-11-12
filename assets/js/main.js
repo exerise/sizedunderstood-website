@@ -12,6 +12,9 @@
     var light = themeRoot.getAttribute("data-theme") === "light";
     var label = light ? "Switch to dark mode" : "Switch to light mode";
     if (themeMeta) themeMeta.setAttribute("content", light ? "#F7F7F2" : "#0A0A0A");
+    document.querySelectorAll("[data-polar-checkout]").forEach(function (b) {
+      b.setAttribute("data-polar-checkout-theme", light ? "light" : "dark");
+    });
     themeButtons.forEach(function (b) {
       b.setAttribute("aria-label", label);
       b.setAttribute("title", label);
@@ -45,30 +48,28 @@
   }
 
   // ---- Buy buttons ----
-  // Runs before lemon.js (both deferred, this one first), so Lemon.js
-  // finds the buttons with their real checkout link already set.
-  var checkoutReady = /^https:\/\/[^/]+\.lemonsqueezy\.com\/(buy|checkout)\//.test(config.checkoutUrl || "") &&
-    config.checkoutUrl.indexOf("REPLACE-ME") === -1;
+  // Runs before Polar's embed script (both deferred, this one first), so the
+  // embed finds the buttons with their real checkout link already set.
+  var checkoutReady = /^https:\/\/(buy\.)?polar\.sh\//.test(config.checkoutUrl || "");
 
   document.querySelectorAll("[data-buy]").forEach(function (btn) {
     if (checkoutReady) {
-      var url = config.checkoutUrl;
       if (config.overlay) {
-        url += (url.indexOf("?") === -1 ? "?" : "&") + "embed=1&media=0";
-        btn.classList.add("lemonsqueezy-button");
+        btn.setAttribute("data-polar-checkout", "");
+        btn.setAttribute("data-polar-checkout-theme", themeRoot.getAttribute("data-theme") === "light" ? "light" : "dark");
       }
-      btn.setAttribute("href", url);
+      btn.setAttribute("href", config.checkoutUrl);
       btn.setAttribute("rel", "noopener");
     } else {
       btn.addEventListener("click", function (e) {
         e.preventDefault();
-        toast("Checkout opens soon. Add your Lemon Squeezy link in assets/js/config.js.");
+        toast("Checkout opens soon.");
       });
     }
   });
 
   // Buyers must tick the consent box (immediate access, no cancellation)
-  // before checkout opens. Capture phase runs before Lemon.js's own handler.
+  // before checkout opens. Capture phase runs before Polar's own handler.
   var consent = document.getElementById("consent");
   if (consent) {
     var syncConsent = function () {
@@ -110,12 +111,6 @@
       setTimeout(function () { box.classList.remove("nudge"); }, 600);
       toast("Tick the box, then press Buy now.");
     });
-  });
-
-  window.addEventListener("load", function () {
-    if (checkoutReady && config.overlay && typeof window.createLemonSqueezy === "function") {
-      window.createLemonSqueezy();
-    }
   });
 
   // ---- Header: border on scroll, mobile menu ----
