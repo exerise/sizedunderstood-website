@@ -264,6 +264,56 @@
     heroVideo.pause();
   }
 
+  // ---- Launch price countdown (ends 1 January 2027, UK time) ----
+  var launchEnd = Date.UTC(2027, 0, 1, 0, 0, 0);
+  var countEls = document.querySelectorAll("[data-countdown]");
+  function pad2(n) { return n < 10 ? "0" + n : String(n); }
+  function tickLaunch() {
+    var ms = launchEnd - Date.now();
+    if (ms <= 0) {
+      document.querySelectorAll("[data-launch]").forEach(function (el) { el.remove(); });
+      return false;
+    }
+    var s = Math.floor(ms / 1000);
+    var text = Math.floor(s / 86400) + "d " + pad2(Math.floor((s % 86400) / 3600)) + "h " + pad2(Math.floor((s % 3600) / 60)) + "m " + pad2(s % 60) + "s";
+    countEls.forEach(function (el) { el.textContent = text; });
+    return true;
+  }
+  if (tickLaunch() && countEls.length) {
+    var launchTimer = setInterval(function () { if (!tickLaunch()) clearInterval(launchTimer); }, 1000);
+  }
+
+  // ---- Reviews (only real, verified buyers; see assets/js/reviews.js) ----
+  var reviewList = document.getElementById("review-list");
+  var reviews = window.SU_REVIEWS || [];
+  if (reviewList && reviews.length) {
+    var esc = function (t) { var d = document.createElement("div"); d.textContent = String(t); return d.innerHTML; };
+    var starText = function (n) { var r = Math.max(1, Math.min(5, Math.round(n))); return "★★★★★".slice(0, r) + "☆☆☆☆☆".slice(0, 5 - r); };
+    var avg = reviews.reduce(function (a, r) { return a + Number(r.rating || 0); }, 0) / reviews.length;
+    var summary = document.getElementById("review-summary");
+    if (summary) summary.innerHTML = '<strong>' + avg.toFixed(1) + '</strong> <span class="stars" aria-hidden="true">' + starText(avg) + '</span> from ' + reviews.length + ' verified buyer' + (reviews.length === 1 ? '' : 's');
+    reviewList.innerHTML = reviews.map(function (r) {
+      return '<figure class="review"><div class="stars" role="img" aria-label="' + esc(r.rating) + ' out of 5 stars">' + starText(r.rating) + '</div>' +
+        '<blockquote>' + esc(r.text) + '</blockquote><figcaption><strong>' + esc(r.name) + '</strong><span class="verified">✓ Verified buyer</span>' +
+        (r.date ? '<span>' + esc(new Date(r.date + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })) + '</span>' : '') +
+        '</figcaption></figure>';
+    }).join("");
+  }
+
+  // ---- Back to top ----
+  var toTop = document.createElement("button");
+  toTop.type = "button";
+  toTop.className = "to-top";
+  toTop.setAttribute("aria-label", "Back to top");
+  toTop.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+  document.body.appendChild(toTop);
+  toTop.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+  });
+  function syncToTop() { toTop.classList.toggle("show", window.scrollY > 600); }
+  window.addEventListener("scroll", syncToTop, { passive: true });
+  syncToTop();
+
   // ---- Year ----
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
