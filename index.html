@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script>try{if(localStorage.getItem("su-theme")==="light"){document.documentElement.setAttribute("data-theme","light");}}catch(e){}</script>
-  <link rel="stylesheet" href="assets/css/style.css?v=8">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 
   <script type="application/ld+json">
   {
@@ -106,6 +106,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>One-time payment</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Instant download</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Free updates</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Works with any Claude Code subscription</li>
           </ul>
         </div>
 
@@ -447,12 +448,23 @@
         <div class="price-card reveal">
           <div class="label">Explainer Pack · Single licence</div>
           <h3>SizedUnderstood for Claude Code</h3>
+          <div class="launch-box" data-launch>
+            <div class="launch-box-top">
+              <span class="launch-tag">Launch price</span>
+              <span>Goes up to <b>$129.99</b> on 1 January 2027</span>
+            </div>
+            <div class="launch-timer" role="timer" aria-label="Time left at the launch price">
+              <div><b data-cd="d">--</b><small>days</small></div>
+              <div><b data-cd="h">--</b><small>hrs</small></div>
+              <div><b data-cd="m">--</b><small>mins</small></div>
+              <div><b data-cd="s">--</b><small>secs</small></div>
+            </div>
+          </div>
           <div class="price">
             <span class="price-amount">$79</span>
             <span class="price-unit">USD · one-time</span>
           </div>
           <p class="price-note">Plus VAT or sales tax where it applies, shown at checkout before you pay. No other fees.</p>
-          <p class="launch-note" data-launch><strong>Launch price.</strong> Goes up to $129.99 on 1 January 2027. Ends in <span class="count" data-countdown>31 Dec</span>.</p>
           <ul class="checklist">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>All skills, commands and scene modules</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Caption system and your saved look</li>
@@ -472,22 +484,6 @@
             Secure checkout by Polar · Instant download
           </p>
         </div>
-      </div>
-    </section>
-
-    <!-- ================= REVIEWS ================= -->
-    <section id="reviews">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Reviews from buyers</h2>
-          <span class="section-tag">&gt; reviews --verified_</span>
-        </div>
-        <div class="reviews-bar">
-          <p class="review-summary" id="review-summary">No reviews yet. Bought the pack? Be one of the first to tell others what you made.</p>
-          <a class="btn btn-ghost" href="mailto:support@sizedunderstood.com?subject=Review%20of%20the%20SizedUnderstood%20Explainer%20Pack&body=Name%20to%20show%20with%20your%20review%20%28first%20name%20or%20initials%29%3A%0A%0ARating%20%281%20to%205%20stars%29%3A%0A%0AYour%20review%3A%0A%0A%0AThe%20email%20you%20bought%20with%20%28only%20to%20check%20your%20purchase%2C%20never%20published%29%3A%0A%0ABy%20sending%20this%2C%20you%20agree%20we%20can%20publish%20your%20name%2C%20rating%20and%20review%20on%20our%20website.">Leave a review</a>
-        </div>
-        <div class="review-list" id="review-list"></div>
-        <p class="review-policy">Only verified buyers can leave a review: we check your email against our orders before publishing. We publish every genuine review, good or bad, and never pay for, write or edit reviews. To have yours removed, email <a href="mailto:support@sizedunderstood.com">support@sizedunderstood.com</a>.</p>
       </div>
     </section>
 
@@ -653,8 +649,7 @@
   </div>
 
   <script src="assets/js/config.js?v=3"></script>
-  <script src="assets/js/reviews.js?v=1"></script>
-  <script src="assets/js/main.js?v=6" defer></script>
+  <script src="assets/js/main.js?v=7" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@polar-sh/checkout@0.1.15/dist/embed.global.js" defer data-auto-init></script>
 </body>
 </html>

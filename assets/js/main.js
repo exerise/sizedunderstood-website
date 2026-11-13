@@ -275,29 +275,14 @@
       return false;
     }
     var s = Math.floor(ms / 1000);
-    var text = Math.floor(s / 86400) + "d " + pad2(Math.floor((s % 86400) / 3600)) + "h " + pad2(Math.floor((s % 3600) / 60)) + "m " + pad2(s % 60) + "s";
+    var parts = { d: Math.floor(s / 86400), h: pad2(Math.floor((s % 86400) / 3600)), m: pad2(Math.floor((s % 3600) / 60)), s: pad2(s % 60) };
+    var text = parts.d + "d " + parts.h + "h " + parts.m + "m " + parts.s + "s";
     countEls.forEach(function (el) { el.textContent = text; });
+    document.querySelectorAll("[data-cd]").forEach(function (el) { el.textContent = parts[el.getAttribute("data-cd")]; });
     return true;
   }
-  if (tickLaunch() && countEls.length) {
+  if (tickLaunch() && (countEls.length || document.querySelector("[data-cd]"))) {
     var launchTimer = setInterval(function () { if (!tickLaunch()) clearInterval(launchTimer); }, 1000);
-  }
-
-  // ---- Reviews (only real, verified buyers; see assets/js/reviews.js) ----
-  var reviewList = document.getElementById("review-list");
-  var reviews = window.SU_REVIEWS || [];
-  if (reviewList && reviews.length) {
-    var esc = function (t) { var d = document.createElement("div"); d.textContent = String(t); return d.innerHTML; };
-    var starText = function (n) { var r = Math.max(1, Math.min(5, Math.round(n))); return "★★★★★".slice(0, r) + "☆☆☆☆☆".slice(0, 5 - r); };
-    var avg = reviews.reduce(function (a, r) { return a + Number(r.rating || 0); }, 0) / reviews.length;
-    var summary = document.getElementById("review-summary");
-    if (summary) summary.innerHTML = '<strong>' + avg.toFixed(1) + '</strong> <span class="stars" aria-hidden="true">' + starText(avg) + '</span> from ' + reviews.length + ' verified buyer' + (reviews.length === 1 ? '' : 's');
-    reviewList.innerHTML = reviews.map(function (r) {
-      return '<figure class="review"><div class="stars" role="img" aria-label="' + esc(r.rating) + ' out of 5 stars">' + starText(r.rating) + '</div>' +
-        '<blockquote>' + esc(r.text) + '</blockquote><figcaption><strong>' + esc(r.name) + '</strong><span class="verified">✓ Verified buyer</span>' +
-        (r.date ? '<span>' + esc(new Date(r.date + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })) + '</span>' : '') +
-        '</figcaption></figure>';
-    }).join("");
   }
 
   // ---- Back to top ----
