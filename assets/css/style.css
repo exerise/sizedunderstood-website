@@ -945,8 +945,8 @@ body.has-buy-bar .to-top { bottom: calc(90px + env(safe-area-inset-bottom)); }
   white-space: nowrap;
   scrollbar-width: thin;
 }
-.code.wrap { align-items: flex-start; }
-.code.wrap code { white-space: normal; overflow-wrap: anywhere; line-height: 1.55; }
+.code.wrap, .code.chat { align-items: flex-start; }
+.code.wrap code, .code.chat code { white-space: normal; overflow-wrap: anywhere; line-height: 1.55; }
 .code code::before { content: "$ "; color: var(--accent); }
 .code.chat code::before { content: "> "; }
 .copy {
@@ -1249,12 +1249,24 @@ body.has-buy-bar .to-top { bottom: calc(90px + env(safe-area-inset-bottom)); }
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 64px 0;
+  padding-top: 64px;
+  padding-bottom: 64px;
 }
 .center-page { grid-template-columns: minmax(0, 1fr); }
 .center-page > * { min-width: 0; max-width: 100%; }
 .center-page h1 { font-size: clamp(36px, 7vw, 64px); margin: 0 0 16px; }
 .center-page .lead { margin: 0 auto 28px; }
+.center-page .install { text-align: left; max-width: 560px; margin: 0 auto 28px; }
+.voice-link { margin: 4px 0 10px; }
+.voice-link .btn { white-space: normal; text-align: center; max-width: 100%; }
+.save-note { font-size: 13px; color: var(--muted); }
+@media (max-width: 519px) {
+  .center-page { padding-top: 40px; padding-bottom: 48px; }
+  .center-page img { width: 60px; height: 60px; margin-bottom: 18px; }
+  .center-page .lead { font-size: 17px; }
+  .center-page .install { padding: 4px 16px 18px; }
+  .center-page .install li { padding-left: 36px; }
+}
 .center-page img { width: 72px; height: 72px; margin: 0 auto 24px; }
 
 /* ---------- Sticky Buy bar ---------- */
